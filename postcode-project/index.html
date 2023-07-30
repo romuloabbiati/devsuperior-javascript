@@ -19,26 +19,28 @@
         </nav>
     </header>
     <main>
-        <section id="form-section">
-            <div>
+        <section id="form-section" class="form-container">
+            <div class="form-card">
                 <form name="newAddress">
-                    <div>
+                    <div class="form-control">
                         <label for="postcode">Post Code:</label>
-                        <input type="text" name="postcode" id="postcode" placeholder="Post Code">
+                        <input type="text" name="postcode" class="form-input" id="postcode" placeholder="Post Code">
+                        <div class="error-message">This field is required</div>
                     </div>
-                    <div>
+                    <div class="form-control">
                         <label for="addressLine">Address Line:</label>
-                        <input type="text" name="addressLine" id="addressLine" placeholder="Address Line">
+                        <input type="text" name="addressLine" class="form-input" id="addressLine" placeholder="Address Line" disabled>
                     </div>
-                    <div>
+                    <div class="form-control">
                         <label for="number">Number:</label>
-                        <input type="text" name="number" id="number" placeholder="Number">
+                        <input type="text" name="number" class="form-input" id="number" placeholder="Number">
+                        <div class="error-message">This field is required</div>
                     </div>
-                    <div>
+                    <div class="form-control">
                         <label for="city">City:</label>
-                        <input type="text" name="city" id="city" placeholder="City">
+                        <input type="text" name="city" class="form-input" id="city" placeholder="City" disabled>
                     </div>
-                    <div>
+                    <div class="form-control">
                         <button type="submit">Save</button>
                         <button>Clear</button>
                     </div>
