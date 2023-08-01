@@ -25,7 +25,7 @@
                     <div class="form-control">
                         <label for="postcode">Post Code:</label>
                         <input type="text" name="postcode" class="form-input" id="postcode" placeholder="Post Code">
-                        <div class="error-message">This field is required</div>
+                        <div class="error-message" data-error="postcode">This field is required</div>
                     </div>
                     <div class="form-control">
                         <label for="addressLine">Address Line:</label>
@@ -34,15 +34,15 @@
                     <div class="form-control">
                         <label for="number">Number:</label>
                         <input type="text" name="number" class="form-input" id="number" placeholder="Number">
-                        <div class="error-message">This field is required</div>
+                        <div class="error-message" data-error="number">This field is required</div>
                     </div>
                     <div class="form-control">
                         <label for="city">City:</label>
                         <input type="text" name="city" class="form-input" id="city" placeholder="City" disabled>
                     </div>
                     <div class="btn-container">
-                        <button class="btn btn-left" type="submit">Save</button>
-                        <button class="btn btn-right">Clear</button>
+                        <button name="btnSave" class="btn btn-left" type="submit">Save</button>
+                        <button name="btnClear" class="btn btn-right">Clear</button>
                     </div>
                 </form>
             </div>
