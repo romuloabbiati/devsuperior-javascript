@@ -28,5 +28,19 @@ export function init() {
 
     state.errorPostCode = document.querySelector('[data-error="postcode"]');
     state.errorNumber = document.querySelector('[data-error="number"]');
-    console.log(state);
+    
+    state.inputNumber.addEventListener('change', handleInputNumberChange);
+}
+
+function handleInputNumberChange(event) {
+    if(event.target.value == "") {
+        setFormError('number', 'This field is required');
+    } else {
+        setFormError('number', '');
+    }
+}
+
+function setFormError(key, value) {
+    const element = document.querySelector(`[data-error="${key}"]`);
+    element.innerHTML = value;
 }
