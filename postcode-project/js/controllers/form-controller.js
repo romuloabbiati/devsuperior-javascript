@@ -30,10 +30,28 @@ export function init() {
     state.errorNumber = document.querySelector('[data-error="number"]');
     
     state.inputNumber.addEventListener('change', handleInputNumberChange);
+    state.btnClear.addEventListener('click', handleBtnClearClick);
+}
+
+function handleBtnClearClick(event) {
+    event.preventDefault();
+    clearForm();
+}
+
+function clearForm() {
+    state.inputPostcode.value = '';
+    state.inputAddressLine.value = '';
+    state.inputNumber.value = '';
+    state.inputCity.value = '';
+
+    setFormError('postCode', '');
+    setFormError('number', '');
+
+    state.inputPostcode.focus();
 }
 
 function handleInputNumberChange(event) {
-    if(event.target.value == "") {
+    if(event.target.value == '') {
         setFormError('number', 'This field is required');
     } else {
         setFormError('number', '');
