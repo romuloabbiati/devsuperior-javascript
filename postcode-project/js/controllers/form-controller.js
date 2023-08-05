@@ -1,5 +1,5 @@
 import Address from '../models/address.js';
-import * as requestService from '../services/request-service.js';
+import * as addressService from '../services/address-service.js';
 
 function State() {
     this.address = new Address;
@@ -34,12 +34,31 @@ export function init() {
     state.btnClear.addEventListener('click', handleBtnClearClick);
     state.btnSave.addEventListener('click', handleBtnSaveClick);
 
+    state.inputPostcode.addEventListener('change', handleInputPostcodeChange);
+}
+
+async function handleInputPostcodeChange(event) {
+    const postcode = event.target.value;
+    try {
+        const address = await addressService.findByPostcode(postcode);
+        
+        state.inputAddressLine.value = address.addressLine;
+        state.inputCity.value = address.city;
+        state.address = address;
+    
+        setFormError('postcode', '');
+        state.inputNumber.focus();
+    }
+    catch (e) {
+        state.inputAddressLine.value = '';
+        state.inputCity.value = '';
+        setFormError('postcode', 'Invalid postcode');
+    }
 }
 
 async function handleBtnSaveClick(event) {
     event.preventDefault();
-    const result = await requestService.getJson('https://viacep.com.br/ws/01001000/json/');
-    console.log(result);
+    console.log(event.target);
 }
 
 function handleBtnClearClick(event) {
